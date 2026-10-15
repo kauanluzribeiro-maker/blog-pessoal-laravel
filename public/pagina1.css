@@ -1,0 +1,630 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+    --bg-deep: #14161B;
+    --bg-panel: #1C1F26;
+    --line: rgba(231, 226, 210, 0.14);
+
+    --paper: #F1ECDA;
+    --ink-light: #E7E2D2;
+    --ink-dark: #22301F;
+    --muted: #9FB3A6;
+    --muted-paper: #6E7A65;
+
+    --amber: #5B6EF5;
+    --amber-dark: #4453DE;
+    --teal: #4FC3B0;
+
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+    --radius-lg: 18px;
+    --radius-md: 12px;
+    --radius-sm: 7px;
+    --shadow-card: 0 20px 44px -20px rgba(0, 0, 0, 0.6);
+    --shadow-soft: 0 10px 24px -14px rgba(0, 0, 0, 0.5);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    color-scheme: dark;
+}
+
+body {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    background: var(--bg-deep);
+    background-image:
+        radial-gradient(720px 420px at 12% -10%, rgba(91, 110, 245, 0.14), transparent 60%),
+        radial-gradient(900px 600px at 100% 0%, rgba(79, 195, 176, 0.08), transparent 55%);
+    background-repeat: no-repeat;
+    color: var(--ink-light);
+    font-family: var(--font-body);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+}
+
+br {
+    display: none;
+}
+
+
+body>h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+}
+
+
+body>p {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 7px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--muted);
+    margin: 0 8px 10px 0;
+}
+
+body>p strong {
+    color: var(--amber);
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+
+div[style*="border-radius:5px"] {
+    font-family: var(--font-body);
+    border: 1px solid rgba(21, 87, 36, 0.25);
+    box-shadow: var(--shadow-soft);
+}
+
+
+body>form[action="/logout"] {
+    display: block;
+    margin: 18px 0 30px;
+}
+
+form[action="/logout"] button {
+    background: transparent;
+    color: var(--ink-light);
+    border: 1px solid var(--line);
+}
+
+form[action="/logout"] button:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+}
+
+
+div[style*="rgb(18, 19, 19)"],
+div[style*="border: 3px solid black"] {
+    border: 1px solid var(--line) !important;
+    background: var(--bg-panel);
+    border-radius: var(--radius-lg);
+    padding: 30px 32px;
+    margin: 0 0 24px;
+}
+
+div[style*="rgb(18, 19, 19)"]>h1,
+div[style*="border: 3px solid black"]>h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 0 0 20px;
+    color: var(--ink-light);
+}
+
+form[action="/posts"] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+form[action="/posts"] input {
+    flex: 1 1 200px;
+}
+
+form[action="/posts"] textarea {
+    flex: 1 1 320px;
+    min-height: 46px;
+    resize: vertical;
+}
+
+
+
+form[action="/registrar"] {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 360px;
+}
+
+
+input,
+textarea {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 9px 12px;
+    color: var(--ink-light);
+    width: 100%;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--muted);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--amber);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+button {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    background: var(--amber);
+    color: var(--ink-light);
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    padding: 9px 18px;
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+button:hover {
+    background: var(--amber-dark);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+div[style*="1px solid #ccc"] {
+    position: relative;
+    border: none !important;
+    padding: 22px 24px 18px !important;
+    margin: 0 0 20px !important;
+    background: var(--paper);
+    color: var(--ink-dark);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    transform: rotate(-0.6deg);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+div[style*="1px solid #ccc"]:nth-of-type(even) {
+    transform: rotate(0.6deg);
+}
+
+div[style*="1px solid #ccc"]:hover {
+    transform: rotate(0deg) translateY(-2px);
+    box-shadow: 0 26px 50px -18px rgba(0, 0, 0, 0.65);
+}
+
+div[style*="1px solid #ccc"]::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 28px;
+    width: 64px;
+    height: 22px;
+    background: var(--amber);
+    opacity: 0.85;
+    transform: rotate(-3deg);
+    border-radius: 2px;
+}
+
+div[style*="1px solid #ccc"]:nth-of-type(even)::before {
+    background: var(--teal);
+    left: auto;
+    right: 28px;
+    transform: rotate(3deg);
+}
+
+div[style*="1px solid #ccc"]>h3 {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.3rem;
+    margin: 6px 0 8px;
+}
+
+div[style*="1px solid #ccc"]>p {
+    margin: 0 0 14px;
+    color: #3A4A34;
+}
+
+div[style*="1px solid #ccc"]>small {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted-paper);
+    margin: 4px 14px 0 0;
+}
+
+a[href$="/edit"] {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: var(--teal);
+    background: rgba(79, 195, 176, 0.14);
+    border: 1px solid rgba(79, 195, 176, 0.35);
+    border-radius: var(--radius-sm);
+    padding: 6px 12px;
+    text-decoration: none;
+    margin: 10px 8px 0 0;
+}
+
+a[href$="/edit"]:hover {
+    background: rgba(79, 195, 176, 0.25);
+}
+
+form:has(input[value="DELETE"]) {
+    display: inline-block;
+    margin: 10px 0 0;
+}
+
+form:has(input[value="DELETE"]) button {
+    background: transparent;
+    color: #D98E8E;
+    border: 1px solid rgba(217, 142, 142, 0.4);
+    font-size: 0.78rem;
+    padding: 6px 12px;
+    box-shadow: none;
+}
+
+form:has(input[value="DELETE"]) button:hover {
+    background: rgba(217, 142, 142, 0.14);
+    color: #E9AFAF;
+}
+
+
+form:has(input[value="PUT"]) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+form:has(input[value="PUT"]) input[type="text"] {
+    flex: 1 1 200px;
+}
+
+form:has(input[value="PUT"]) textarea {
+    flex: 1 1 320px;
+    min-height: 46px;
+    resize: vertical;
+}
+
+
+a[href="/"] {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--muted);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+a[href="/"]:hover {
+    color: var(--amber);
+}
+
+
+body>h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--ink-light);
+    margin: 30px 0 8px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+}
+
+body>ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+
+@media (max-width: 640px) {
+    body {
+        padding: 24px 16px 60px;
+    }
+
+    div[style*="rgb(18, 19, 19)"],
+    div[style*="border: 3px solid black"] {
+        padding: 24px 20px;
+    }
+
+    div[style*="1px solid #ccc"] {
+        transform: none !important;
+    }
+
+    form[action="/posts"] button,
+    form[action="/registrar"] button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    div[style*="1px solid #ccc"],
+    div[style*="1px solid #ccc"]:nth-of-type(even),
+    div[style*="1px solid #ccc"]:hover {
+        transform: none;
+    }
+}
+
+/* ESPAÇAMENTO DO LOGIN */
+
+form[action="/login"] {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+form[action="/login"] input[type="email"],
+form[action="/login"] input[type="password"] {
+    display: block;
+    width: 100%;
+    height: 46px;
+    box-sizing: border-box;
+    padding: 9px 12px;
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--ink-light);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+}
+
+form[action="/login"] input[type="email"] {
+    margin-bottom: 12px;
+}
+
+form[action="/login"] input[type="password"] {
+    margin-bottom: 14px;
+}
+
+form[action="/login"] button {
+    display: block;
+    width: 100%;
+    min-height: 46px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 9px 18px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink-light);
+    background: var(--amber);
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+}
+
+form[action="/login"] input:focus {
+    outline: none;
+    border-color: var(--amber);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(91, 110, 245, 0.10);
+}
+
+form[action="/login"] button:hover {
+    background: var(--amber-dark);
+    transform: translateY(-1px);
+}
+
+
+
+
+/*  AJUSTE DO BLOCO DE LOGIN E CADASTRO */
+
+body > div[style*="border: 3px solid black"] {
+    width: min(100% - 32px, 430px);
+    margin: 35px auto 0;
+    padding: 30px;
+    box-sizing: border-box;
+    border: 1px solid var(--line) !important;
+    border-radius: var(--radius-lg);
+    background: var(--bg-panel);
+    box-shadow: var(--shadow-card);
+}
+
+body > div[style*="border: 3px solid black"] h1 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+body > div[style*="border: 3px solid black"] form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+body > div[style*="border: 3px solid black"] input {
+    width: 100%;
+    height: 46px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 9px 12px;
+}
+
+body > div[style*="border: 3px solid black"] button {
+    width: 100%;
+    min-height: 46px;
+    box-sizing: border-box;
+    margin-top: 4px;
+}
+
+body > div[style*="border: 3px solid black"] p {
+    margin-top: 22px;
+    text-align: center;
+}
+
+body > div[style*="border: 3px solid black"] p a {
+    color: var(--amber);
+}
+
+@media (max-width: 640px) {
+
+    body > div[style*="border: 3px solid black"] {
+        width: calc(100% - 32px);
+        padding: 24px 20px;
+    }
+
+}
+
+/*----  CENTRALIZAÇÃO DOS TÍTULOS ---*/
+
+body > h1 {
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+body > div[style*="border: 3px solid black"] h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+a[href="/?login=1"] {
+
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--muted);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+
+.contatos-redes {
+    width: auto;
+    max-width: none;
+    margin: 80px 0 0 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+
+}
+
+.contatos-redes h3 {
+    margin: 0 0 15px;
+}
+
+.redes-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.contatos-redes .rede-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+    color: inherit;
+    transition: none;
+}
+
+.contatos-redes .rede-link:hover {
+    background: transparent;
+    border: none;
+    transform: none;
+}
+
+.rede-icone {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: white;
+    flex-shrink: 0;
+}
+
+.rede-icone svg {
+    width: 21px;
+    height: 21px;
+}
+
+.rede-icone.linkedin {
+    background: #0a66c2;
+}
+
+.rede-icone.github {
+    background: #24292f;
+}
+
+.rede-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.rede-info strong {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.rede-info small {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.rede-seta {
+    display: none;
+}

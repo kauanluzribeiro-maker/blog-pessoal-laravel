@@ -148,7 +148,7 @@
             <span class="rede-seta">↗</span>
         </a>
 
-        <a href="https://github.com/SEU-USUARIO"
+        <a href="https://github.com/kauanluzribeiro-maker/blog-pessoal-laravel"
            class="rede-link"
            target="_blank"
            rel="noopener noreferrer">

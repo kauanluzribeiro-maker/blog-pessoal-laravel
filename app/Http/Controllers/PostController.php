@@ -29,9 +29,8 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $campos = $request->validate([
-        'titulo' => ['required' , 'min:3' , 'max:20',
-        'alpha_num'],
-        'postagem' => ['required' , 'min:5'],
+        'titulo' => ['required', 'string', 'min:3', 'max:100'],
+        'postagem' => ['required', 'string', 'min:5'],
         ]);
 
         $campos['user_id'] = auth()->id();
@@ -61,9 +60,8 @@ class PostController extends Controller
         }
  
         $campos = $request->validate([
-        'titulo' => ['required' , 'min:3' , 'max:20',
-        'alpha_num'],
-        'postagem' => ['required' , 'min:5'],
+        'titulo' => ['required', 'string', 'min:3', 'max:100'],
+        'postagem' => ['required', 'string', 'min:5'],
         ]);
  
         $post->update($campos);
